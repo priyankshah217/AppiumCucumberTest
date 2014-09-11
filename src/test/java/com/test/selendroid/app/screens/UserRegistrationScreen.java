@@ -1,4 +1,4 @@
-package com.test.screens;
+package com.test.selendroid.app.screens;
 
 import io.appium.java_client.AppiumDriver;
 

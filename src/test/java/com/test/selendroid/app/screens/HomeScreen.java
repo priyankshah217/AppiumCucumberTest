@@ -1,4 +1,4 @@
-package com.test.screens;
+package com.test.selendroid.app.screens;
 
 import io.appium.java_client.AppiumDriver;
 
@@ -53,6 +53,11 @@ public class HomeScreen extends AbstractScreen {
 	public UserRegistrationScreen getUserRegistration() {
 		userRegistrationButton.click();
 		return new UserRegistrationScreen(driver);
+	}
+	
+	public WebViewScreen openWebView(){
+		startWebViewButton.click();
+		return new WebViewScreen(driver);
 	}
 
 }

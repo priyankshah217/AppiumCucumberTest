@@ -1,15 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<suite name="Enigma Smoke Tests Execution Report"
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Appium Smoke Tests Execution Report"
 	skipfailedinvocationCounts="false" thread-count="100">
 	<!-- parameter name="config-file" value="src/test/resources/default.properties" -->
-	<test name="AppiumTest" verbose="5">
+
+	<test name="SelendroidAppDemoTest" verbose="5" enabled="false">
 		<groups>
 			<run>
 				<include name="Smoke" />
 			</run>
 		</groups>
 		<classes parallel="false" preserve-order="true">
-			<class name="com.test.AppiumAutomationTests" />
+			<class name="com.test.AppiumSelendroidAppTests" />
+		</classes>
+	</test>
+
+	<test name="ApiDemoTests" verbose="5">
+		<groups>
+			<run>
+				<include name="Smoke" />
+			</run>
+		</groups>
+		<classes parallel="false" preserve-order="true">
+			<class name="com.test.AppiumApiDemoAppTests" />
 		</classes>
 	</test>
 	<listeners>
