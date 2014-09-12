@@ -8,7 +8,7 @@ Current framework provide basic implementation of PageFactory frame and demostra
 The same implementation for mobile sites and Hybrid apps will be covered later.
 
 
-Pre-Requisite
+Prerequisite
 =====================
 1. Android SDK
 2. Appium
