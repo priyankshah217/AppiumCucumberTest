@@ -69,7 +69,7 @@ public class AppiumApiDemoAppTests {
 				.getScreenOrientationPage();
 		Assert.assertEquals(
 				screenOrientationPage.isItValidScreenOrientationPage(), true);
-		screenOrientationPage.changeScreenOrientation("FULL_SENSOR");
+		screenOrientationPage.changeScreenOrientation("USER");
 		Assert.assertEquals(screenOrientationPage.checkOrientationType(), true);
 	}
 }

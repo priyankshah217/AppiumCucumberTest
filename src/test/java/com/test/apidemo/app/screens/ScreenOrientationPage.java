@@ -5,6 +5,7 @@ import io.appium.java_client.TouchAction;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -30,9 +31,11 @@ public class ScreenOrientationPage extends AbstractScreen {
 	public ScreenOrientationPage changeScreenOrientation(String sensorType) {
 		this.sensorType = sensorType;
 		orientationMenu.click();
-		TouchAction action = new TouchAction(driver);
-		action.press(245, 1637).waitAction(300).moveTo(245, 615).release()
-				.perform();
+		if (!isElementPresent(By.name(sensorType))) {
+			TouchAction action = new TouchAction(driver);
+			action.press(245, 1637).waitAction(300).moveTo(245, 615).release()
+					.perform();
+		}
 		for (WebElement el : orientationList) {
 			if (el.getText().equals(sensorType)) {
 				el.click();
@@ -43,12 +46,22 @@ public class ScreenOrientationPage extends AbstractScreen {
 	}
 
 	public boolean checkOrientationType() {
-		return orientationList.get(0).getText().equals(this.sensorType);
+		boolean isPassed = false;
+		if (orientationList.get(0).getText().equals(this.sensorType)) {
+			isPassed = true;
+		} else {
+			takeScreenShot("InvalidOrientation");
+		}
+		return isPassed;
 	}
 
 	public boolean isItValidScreenOrientationPage() {
-		return actionBarTitle.getText().equals(
-				"App/Activity/Screen Orientation");
+		boolean isPassed = false;
+		if (actionBarTitle.getText().equals("App/Activity/Screen Orientation")) {
+			isPassed = true;
+		} else {
+			takeScreenShot("InvalidSensor");
+		}
+		return isPassed;
 	}
-
 }

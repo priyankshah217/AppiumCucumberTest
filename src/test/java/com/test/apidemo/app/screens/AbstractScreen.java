@@ -2,15 +2,18 @@ package com.test.apidemo.app.screens;
 
 import io.appium.java_client.AppiumDriver;
 
-import org.openqa.selenium.Alert;
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 public abstract class AbstractScreen {
 
 	public AppiumDriver driver;
-	private boolean acceptNextAlert;
 
 	public AbstractScreen(AppiumDriver driver) {
 		// TODO Auto-generated constructor stub
@@ -26,28 +29,16 @@ public abstract class AbstractScreen {
 		}
 	}
 
-	private boolean isAlertPresent() {
+	protected void takeScreenShot(String fileName) {
+		// TODO Auto-generated method stub
+		File file = new File(fileName+".png");
+		File tmpFile = ((TakesScreenshot) driver)
+				.getScreenshotAs(OutputType.FILE);
 		try {
-			driver.switchTo().alert();
-			return true;
-		} catch (NoAlertPresentException e) {
-			return false;
+			FileUtils.copyFile(tmpFile, file);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
-
-	private String closeAlertAndGetItsText() {
-		try {
-			Alert alert = driver.switchTo().alert();
-			String alertText = alert.getText();
-			if (acceptNextAlert) {
-				alert.accept();
-			} else {
-				alert.dismiss();
-			}
-			return alertText;
-		} finally {
-			acceptNextAlert = true;
-		}
-	}
-
 }
