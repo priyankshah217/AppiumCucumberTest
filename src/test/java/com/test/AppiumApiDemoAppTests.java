@@ -13,19 +13,19 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.test.apidemo.app.screens.AppActivityPage;
-import com.test.apidemo.app.screens.AppMenuPage;
+import com.test.apidemo.app.screens.AppActivityScreen;
+import com.test.apidemo.app.screens.AppMenuScreen;
 import com.test.apidemo.app.screens.HomeScreen;
-import com.test.apidemo.app.screens.ScreenOrientationPage;
+import com.test.apidemo.app.screens.ScreenOrientationScreen;
 import com.test.utils.TestAppUtils;
 
 public class AppiumApiDemoAppTests {
 	private TestAppUtils testAppUtils;
 	private AppiumDriver driver;
 	private HomeScreen homeScreen;
-	private AppMenuPage appMenuPage;
-	private AppActivityPage appActivityPage;
-	private ScreenOrientationPage screenOrientationPage;
+	private AppMenuScreen appMenuPage;
+	private AppActivityScreen appActivityPage;
+	private ScreenOrientationScreen screenOrientationPage;
 
 	@BeforeMethod
 	public void beforeMethod() {
