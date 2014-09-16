@@ -9,21 +9,22 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomeScreen extends AbstractScreen {
+public class AppMenuScreen extends AbstractScreen {
 
-	@AndroidFindBy(name = "App")
-	private WebElement appMenuItem;
+	@AndroidFindBy(name = "Activity")
+	private WebElement appActivity;
 
-	public HomeScreen(AppiumDriver driver) {
+	public AppMenuScreen(AppiumDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
 		PageFactory.initElements(new AppiumFieldDecorator(driver, 15,
 				TimeUnit.SECONDS), this);
 	}
 
-	public AppMenuScreen getAppMenuPage() {
-		// driver.findElement(By.name("App")).click();
-		appMenuItem.click();
-		return new AppMenuScreen(driver);
+	public AppActivityScreen getActivityPage() {
+		// TODO Auto-generated method stub
+		appActivity.click();
+		return new AppActivityScreen(driver);
 	}
+
 }

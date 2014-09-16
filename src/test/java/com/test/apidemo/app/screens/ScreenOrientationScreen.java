@@ -2,33 +2,36 @@ package com.test.apidemo.app.screens;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ScreenOrientationPage extends AbstractScreen {
+public class ScreenOrientationScreen extends AbstractScreen {
 
 	private String sensorType;
-	@FindBy(id = "io.appium.android.apis:id/orientation")
+	@AndroidFindBy(id = "io.appium.android.apis:id/orientation")
 	private WebElement orientationMenu;
 
-	@FindBy(id = "android:id/text1")
+	@AndroidFindBy(id = "android:id/text1")
 	private List<WebElement> orientationList;
 
-	@FindBy(id = "android:id/action_bar_title")
+	@AndroidFindBy(id = "android:id/action_bar_title")
 	private WebElement actionBarTitle;
 
-	public ScreenOrientationPage(AppiumDriver driver) {
+	public ScreenOrientationScreen(AppiumDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(new AppiumFieldDecorator(driver, 15,
+				TimeUnit.SECONDS), this);
 	}
 
-	public ScreenOrientationPage changeScreenOrientation(String sensorType) {
+	public ScreenOrientationScreen changeScreenOrientation(String sensorType) {
 		this.sensorType = sensorType;
 		orientationMenu.click();
 		if (!isElementPresent(By.name(sensorType))) {
