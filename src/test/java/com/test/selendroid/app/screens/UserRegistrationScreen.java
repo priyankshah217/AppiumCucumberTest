@@ -1,43 +1,44 @@
 package com.test.selendroid.app.screens;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class UserRegistrationScreen extends AbstractScreen {
 
-	@FindBy(id = "io.selendroid.testapp:id/input_preferedProgrammingLanguage")
+	@AndroidFindBy(id = "io.selendroid.testapp:id/input_preferedProgrammingLanguage")
 	private WebElement preferredProgrammingLanguage;
 
-	@FindBy(id = "android:id/text1")
+	@AndroidFindBy(id = "android:id/text1")
 	private List<WebElement> languageList;
 
-	@FindBy(id = "io.selendroid.testapp:id/inputUsername")
+	@AndroidFindBy(id = "io.selendroid.testapp:id/inputUsername")
 	private WebElement userNameInput;
 
-	@FindBy(id = "io.selendroid.testapp:id/inputEmail")
+	@AndroidFindBy(id = "io.selendroid.testapp:id/inputEmail")
 	private WebElement userEmailInput;
 
-	@FindBy(id = "io.selendroid.testapp:id/inputPassword")
+	@AndroidFindBy(id = "io.selendroid.testapp:id/inputPassword")
 	private WebElement userPassword;
 
-	@FindBy(id = "io.selendroid.testapp:id/inputName")
+	@AndroidFindBy(id = "io.selendroid.testapp:id/inputName")
 	private WebElement inputNameText;
 
-	@FindBy(id = "io.selendroid.testapp:id/input_adds")
+	@AndroidFindBy(id = "io.selendroid.testapp:id/input_adds")
 	private WebElement addCheckBox;
 
-	@FindBy(id = "io.selendroid.testapp:id/btnRegisterUser")
+	@AndroidFindBy(id = "io.selendroid.testapp:id/btnRegisterUser")
 	private WebElement registerButton;
 
 	public UserRegistrationScreen(AppiumDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
 
 	public UserRegistrationScreen fillUserName(String userName) {

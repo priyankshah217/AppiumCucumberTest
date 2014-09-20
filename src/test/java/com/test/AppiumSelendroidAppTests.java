@@ -3,7 +3,7 @@ package com.test;
 import io.appium.java_client.AppiumDriver;
 
 import java.io.File;
-import java.net.MalformedURLException;
+import java.io.IOException;
 
 import org.openqa.selenium.remote.CapabilityType;
 import org.testng.annotations.AfterClass;
@@ -35,7 +35,8 @@ public class AppiumSelendroidAppTests {
 	}
 
 	@BeforeClass(alwaysRun = true)
-	public void beforeClass() throws MalformedURLException {
+	public void beforeClass() throws IOException {
+		TestAppUtils.loadConfigProp("config_selendroid_test_app.properties");
 		testAppUtils = new TestAppUtils();
 		testAppUtils.setCapability(CapabilityType.BROWSER_NAME, "");
 		testAppUtils.setCapability("platformVersion", "4.4.2");
@@ -43,16 +44,13 @@ public class AppiumSelendroidAppTests {
 		testAppUtils.setCapability("platformName", "Android");
 		testAppUtils.setCapability("deviceName", "Android");
 		testAppUtils.setCapability("automationName", "Appium");
-		testAppUtils
-				.setCapability(
-						"app",
-						new File(ClassLoader.getSystemResource(
-								"selendroid-test-app.apk").getFile())
-								.getAbsolutePath());
+		testAppUtils.setCapability("app", new File(ClassLoader
+				.getSystemResource(TestAppUtils.APPLICATION_NAME).getFile())
+				.getAbsolutePath());
 		testAppUtils.setCapability("newCommandTimeout", "3600");
 		testAppUtils.setCapability("deviceReadyTimeout", "3600");
-		testAppUtils.setCapability("appActivity", ".HomeScreenActivity");
-		testAppUtils.setCapability("appPackage", "io.selendroid.testapp");
+		testAppUtils.setCapability("appActivity", TestAppUtils.APP_ACTIVITY);
+		testAppUtils.setCapability("appPackage", TestAppUtils.BASE_PKG);
 		driver = testAppUtils.getDriver();
 	}
 

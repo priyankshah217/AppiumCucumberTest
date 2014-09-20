@@ -3,7 +3,7 @@ package com.test;
 import io.appium.java_client.AppiumDriver;
 
 import java.io.File;
-import java.net.MalformedURLException;
+import java.io.IOException;
 
 import org.openqa.selenium.remote.CapabilityType;
 import org.testng.Assert;
@@ -36,7 +36,8 @@ public class AppiumApiDemoAppTests {
 	}
 
 	@BeforeClass(alwaysRun = true)
-	public void beforeClass() throws MalformedURLException {
+	public void beforeClass() throws IOException {
+		TestAppUtils.loadConfigProp("config_apidemo_test_app.properties");
 		testAppUtils = new TestAppUtils();
 		testAppUtils.setCapability(CapabilityType.BROWSER_NAME, "");
 		testAppUtils.setCapability("platformVersion", "4.4.2");
@@ -45,13 +46,12 @@ public class AppiumApiDemoAppTests {
 		testAppUtils.setCapability("deviceName", "Android");
 		testAppUtils.setCapability("automationName", "Appium");
 		testAppUtils.setCapability("app", new File(ClassLoader
-				.getSystemResource("ApiDemos-debug.apk").getFile())
+				.getSystemResource(TestAppUtils.APPLICATION_NAME).getFile())
 				.getAbsolutePath());
 		testAppUtils.setCapability("newCommandTimeout", "3600");
 		testAppUtils.setCapability("deviceReadyTimeout", "3600");
-		testAppUtils.setCapability("fullreset", "false");
-		testAppUtils.setCapability("appActivity", ".ApiDemos");
-		testAppUtils.setCapability("appPackage", "io.appium.android.apis");
+		testAppUtils.setCapability("appActivity", TestAppUtils.APP_ACTIVITY);
+		testAppUtils.setCapability("appPackage", TestAppUtils.BASE_PKG);
 		driver = testAppUtils.getDriver();
 	}
 

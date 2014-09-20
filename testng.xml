@@ -3,7 +3,7 @@
 	skipfailedinvocationCounts="false" thread-count="100">
 	<!-- parameter name="config-file" value="src/test/resources/default.properties" -->
 
-	<test name="SelendroidAppDemoTest" verbose="5" enabled="false">
+	<test name="SelendroidAppDemoTest" verbose="5" enabled="true">
 		<groups>
 			<run>
 				<include name="Smoke" />
@@ -13,8 +13,7 @@
 			<class name="com.test.AppiumSelendroidAppTests" />
 		</classes>
 	</test>
-
-	<test name="ApiDemoTests" verbose="5">
+	<test name="ApiDemoTests" verbose="5" enabled="false">
 		<groups>
 			<run>
 				<include name="Smoke" />
