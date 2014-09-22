@@ -23,7 +23,7 @@ public class TestAppUtils {
 	private static String APPIUM_PORT;
 	private DesiredCapabilities capabilities;
 	private URL serverUrl;
-	private AppiumDriver driver;
+	private AppiumDriver driver;	
 
 	public TestAppUtils() {
 		// TODO Auto-generated constructor stub
