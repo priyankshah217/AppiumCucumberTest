@@ -1,6 +1,6 @@
 package com.test.apidemo.app.screens;
 
-import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
@@ -14,7 +14,7 @@ public class HomeScreen extends AbstractScreen {
 	@AndroidFindBy(name = "App")
 	private WebElement appMenuItem;
 
-	public HomeScreen(AppiumDriver driver) {
+	public HomeScreen(AndroidDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
 		PageFactory.initElements(new AppiumFieldDecorator(driver, 15,

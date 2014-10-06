@@ -1,6 +1,6 @@
 package com.test.apidemo.app.screens;
 
-import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
@@ -15,7 +15,7 @@ public class AppActivityScreen extends AbstractScreen {
 	@AndroidFindBy(id = "android:id/text1")
 	private List<WebElement> activityList;
 
-	public AppActivityScreen(AppiumDriver driver) {
+	public AppActivityScreen(AndroidDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
 		PageFactory.initElements(new AppiumFieldDecorator(driver, 15,
@@ -32,18 +32,19 @@ public class AppActivityScreen extends AbstractScreen {
 		// .perform();
 
 		// Swipe can be simulate directly using AppiumDriver
-		
+
 		driver.swipe(0, 1533, 0, 219, 900);
 		return this;
-	}
+	}	
 
-	public ScreenOrientationScreen getScreenOrientationPage() {
+	public SecureSurfaceScreen getSecureSurfaceScreen() {
+		// TODO Auto-generated method stub
 		for (WebElement el : activityList) {
-			if (el.getText().equals("Screen Orientation")) {
+			if (el.getText().equals("Secure Surfaces")) {
 				el.click();
 				break;
 			}
 		}
-		return new ScreenOrientationScreen(driver);
+		return new SecureSurfaceScreen(driver);
 	}
 }

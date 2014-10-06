@@ -1,6 +1,6 @@
 package com.test.apidemo.app.screens;
 
-import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,9 +13,9 @@ import org.openqa.selenium.TakesScreenshot;
 
 public abstract class AbstractScreen {
 
-	public AppiumDriver driver;
+	public AndroidDriver driver;
 
-	public AbstractScreen(AppiumDriver driver) {
+	public AbstractScreen(AndroidDriver driver) {
 		// TODO Auto-generated constructor stub
 		this.driver = driver;
 	}

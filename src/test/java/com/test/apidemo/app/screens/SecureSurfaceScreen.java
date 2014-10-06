@@ -4,27 +4,33 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class AppMenuScreen extends AbstractScreen {
+public class SecureSurfaceScreen extends AbstractScreen {
+	
+	@AndroidFindBy(id="android:id/text1")
+	private List<WebElement> secureSurfaceItemList;
 
-	@AndroidFindBy(name = "Activity")
-	private WebElement appActivity;
-
-	public AppMenuScreen(AndroidDriver driver) {
+	public SecureSurfaceScreen(AndroidDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
 		PageFactory.initElements(new AppiumFieldDecorator(driver, 15,
 				TimeUnit.SECONDS), this);
 	}
 
-	public AppActivityScreen getActivityPage() {
+	public SecureDialogDescriptionScreen getSecureDialogDescriptionScreen() {
 		// TODO Auto-generated method stub
-		appActivity.click();
-		return new AppActivityScreen(driver);
+		for (WebElement el : secureSurfaceItemList) {
+			if (el.getText().equals("Secure Dialog")) {
+				el.click();
+				break;
+			}
+		}
+		return new SecureDialogDescriptionScreen(driver);
 	}
 
 }
