@@ -29,4 +29,5 @@ Integration with Jenkins
 To be done
 
 ( **Note**: All scripts have been tested on real device (Nexus 5))
+
 ( **Note**: This is just reference project, hence defined feature file contains just basic Gherkins sentences.)
