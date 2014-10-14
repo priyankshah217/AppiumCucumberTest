@@ -27,27 +27,6 @@ public class ApiDemoAppStepDefs {
 	private SecureSurfaceScreen secureSurfaceScreen;
 	private SecureDialogDescriptionScreen secureDialogDescriptionScreen;
 
-	// @BeforeMethod
-	// public void setUp() throws IOException {
-	//
-	// }
-	//
-	// @AfterMethod
-	// public void tearDown() {
-	//
-	// }
-
-	//
-	// @BeforeClass(alwaysRun = true)
-	// public void beforeClass() throws IOException {
-	//
-	// }
-	//
-	// @AfterClass(alwaysRun = true)
-	// public void afterClass() {
-	//
-	// }
-
 	@Given("^I Open API demo Application in my device$")
 	public void i_Open_API_demo_Application_in_my_device() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions

@@ -11,9 +11,13 @@
 		<dependency>
 			<groupId>org.apache.maven.surefire</groupId>
 			<artifactId>surefire-testng</artifactId>
-			<version>2.17</version>
-			<scope>test</scope>			
-		</dependency>		
+			<version>LATEST</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>LATEST</version>
+		</dependency>
 		<dependency>
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-picocontainer</artifactId>
@@ -23,19 +27,16 @@
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-junit</artifactId>
 			<version>LATEST</version>
-			<scope>test</scope>			
 		</dependency>
 		<dependency>
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-testng</artifactId>
 			<version>LATEST</version>
-			<scope>test</scope>			
 		</dependency>
 		<dependency>
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-java</artifactId>
-			<scope>test</scope>
-			<version>LATEST</version>			
+			<version>LATEST</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.android</groupId>
@@ -46,7 +47,7 @@
 		<dependency>
 			<groupId>org.uncommons</groupId>
 			<artifactId>reportng</artifactId>
-			<version>1.1.4</version>			
+			<version>LATEST</version>
 		</dependency>
 		<dependency>
 			<groupId>velocity</groupId>
@@ -56,7 +57,7 @@
 		<dependency>
 			<groupId>com.google.inject</groupId>
 			<artifactId>guice</artifactId>
-			<version>3.0</version>
+			<version>LATEST</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.maven.plugins</groupId>
@@ -66,11 +67,6 @@
 		<dependency>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-site-plugin</artifactId>
-			<version>LATEST</version>			
-		</dependency>
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
 			<version>LATEST</version>
 		</dependency>
 		<dependency>
@@ -82,12 +78,6 @@
 			<groupId>io.appium</groupId>
 			<artifactId>java-client</artifactId>
 			<version>LATEST</version>
-		</dependency>
-		<dependency>
-			<groupId>com.googlecode.json-simple</groupId>
-			<artifactId>json-simple</artifactId>
-			<version>LATEST</version>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>commons-lang</groupId>
