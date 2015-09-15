@@ -6,22 +6,22 @@ import org.openqa.selenium.WebElement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ * Created by priyankp.shah on 15/9/15.
+ */
 @Component
-public class HomeScreen extends AbstractScreen {
+public class SecureDialogScreen extends AbstractScreen {
+
+    @AndroidFindBy(accessibility = "Show secure dialog")
+    private WebElement secureDialogElement;
 
     @Autowired
-    private AppScreen appScreen;
-
-    @AndroidFindBy(accessibility = "App")
-    private WebElement appMenuElement;
-
-    @Autowired
-    public HomeScreen(AndroidDriver driver) {
+    public SecureDialogScreen(AndroidDriver driver) {
         super(driver);
     }
 
-    public AppScreen getAppScreen() {
-        appMenuElement.click();
-        return appScreen;
+    public void getSecureDialog() {
+        secureDialogElement.click();
+
     }
 }
