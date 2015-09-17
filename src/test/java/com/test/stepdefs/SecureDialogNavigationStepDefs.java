@@ -20,9 +20,9 @@ public class SecureDialogNavigationStepDefs {
     public SecureDialogScreen secureDialogScreen;
 
     @When("^I click on \"([^\"]*)\" on \"([^\"]*)\"$")
-    public void i_click_on_on(String menuItemName, String screenName) throws Throwable {
+    public void i_click_on_on(String clickOn, String screenName) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
-        switch (menuItemName) {
+        switch (clickOn) {
             case "App":
                 appScreen = homeScreen.getAppScreen();
                 break;
@@ -71,5 +71,6 @@ public class SecureDialogNavigationStepDefs {
         // Write code here that turns the phrase above into concrete actions
         Assert.assertTrue(true);
     }
+
 
 }
