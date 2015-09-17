@@ -10,10 +10,16 @@ import org.springframework.stereotype.Component;
 public class AppScreen extends AbstractScreen {
 
     @Autowired
+    private NotificationScreen notificationScreen;
+
+    @Autowired
     private ActivityScreen activityScreen;
 
     @AndroidFindBy(accessibility = "Activity")
     private WebElement appActivityElement;
+
+    @AndroidFindBy(accessibility = "Notification")
+    private WebElement appNotificationElement;
 
     @Autowired
     public AppScreen(AndroidDriver driver) {
@@ -24,5 +30,10 @@ public class AppScreen extends AbstractScreen {
         appActivityElement.click();
         driver.scrollTo("Secure Surfaces");
         return activityScreen;
+    }
+
+    public NotificationScreen getNotificationScreen() {
+        appNotificationElement.click();
+        return notificationScreen;
     }
 }

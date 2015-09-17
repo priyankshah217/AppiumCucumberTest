@@ -51,11 +51,11 @@ public class AppUtils {
 
     public AppUtils() throws MalformedURLException {
         // TODO Auto-generated constructor stub
-        capabilities = new DesiredCapabilities();
     }
 
     @Bean
     public AndroidDriver getDriver() throws MalformedURLException {
+        capabilities = new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, browserName);
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, platformVersion);
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, platformName);

@@ -18,6 +18,10 @@ public class SecureDialogNavigationStepDefs {
     public SecureSurfaceScreen secureSurfaceScreen;
     @Autowired
     public SecureDialogScreen secureDialogScreen;
+    @Autowired
+    private NotificationScreen notificationScreen;
+    @Autowired
+    private IncomingMessageNotificationScreen incomingMessageNotificationScreen;
 
     @When("^I click on \"([^\"]*)\" on \"([^\"]*)\"$")
     public void i_click_on_on(String clickOn, String screenName) throws Throwable {
@@ -34,6 +38,12 @@ public class SecureDialogNavigationStepDefs {
                 break;
             case "Secure Dialog":
                 secureDialogScreen = secureSurfaceScreen.getSecureDialogScreen();
+                break;
+            case "Notification":
+                notificationScreen = appScreen.getNotificationScreen();
+                break;
+            case "IncomingMessage":
+                incomingMessageNotificationScreen = notificationScreen.getIncomingMessageNotificationScreen();
                 break;
         }
     }
@@ -57,13 +67,28 @@ public class SecureDialogNavigationStepDefs {
     @Then("^\"([^\"]*)\" text should visible on button$")
     public void text_should_visible_on_button(String buttonText) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
-        Assert.assertTrue(secureDialogScreen.isElementPresent(MobileBy.AccessibilityId("Show secure dialog")));
+        switch (buttonText) {
+            case "Show secure dialog":
+                Assert.assertTrue(secureDialogScreen.isElementPresent(MobileBy.AccessibilityId("Show secure dialog")));
+                break;
+            case "Show App Notification":
+                Assert.assertTrue(incomingMessageNotificationScreen.isElementPresent(MobileBy.AccessibilityId("Show App Notification")));
+        }
+
     }
 
     @When("^I click on \"([^\"]*)\" button on \"([^\"]*)\"$")
-    public void i_click_on_button_on(String arg1, String arg2) throws Throwable {
+    public void i_click_on_button_on(String buttonText, String screenName) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
-        secureDialogScreen.getSecureDialog();
+        switch (buttonText) {
+            case "Show secure dialog":
+                secureDialogScreen.getSecureDialog();
+                break;
+            case "Show App Notification":
+                incomingMessageNotificationScreen.openMessageNotification();
+                break;
+        }
+
     }
 
     @Then("^Dialog should be visible$")
