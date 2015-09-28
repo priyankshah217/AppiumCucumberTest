@@ -50,10 +50,6 @@ public class AppUtils {
     private URL serverUrl;
     private AndroidDriver androidDriver;
 
-    public AppUtils() throws MalformedURLException {
-        // TODO Auto-generated constructor stub
-    }
-
     @Bean(destroyMethod = "quit")
     @Scope("cucumber-glue")
     public AndroidDriver getDriver() throws MalformedURLException {
