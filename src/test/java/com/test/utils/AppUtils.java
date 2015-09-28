@@ -54,7 +54,7 @@ public class AppUtils {
         // TODO Auto-generated constructor stub
     }
 
-    @Bean
+    @Bean(destroyMethod = "quit")
     @Scope("cucumber-glue")
     public AndroidDriver getDriver() throws MalformedURLException {
         capabilities = new DesiredCapabilities();
