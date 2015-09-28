@@ -1,13 +1,20 @@
 package com.test.stepdefs;
 
 import com.test.apidemo.app.screens.*;
+import com.test.utils.AppUtils;
+import cucumber.api.java.After;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.appium.java_client.MobileBy;
 import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.net.MalformedURLException;
+
 public class SecureDialogNavigationStepDefs {
+    @Autowired
+    private AppUtils utils;
+
     @Autowired
     public AppScreen appScreen;
     @Autowired
@@ -97,5 +104,13 @@ public class SecureDialogNavigationStepDefs {
         Assert.assertTrue(true);
     }
 
+    @After
+    public void clearSession(){
+        try {
+            utils.getDriver().quit();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

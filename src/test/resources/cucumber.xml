@@ -8,5 +8,4 @@
     <context:annotation-config/>
 
     <import resource="classpath*:/applicationContext.xml"/>
-
 </beans>

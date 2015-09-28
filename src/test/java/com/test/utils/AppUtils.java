@@ -6,6 +6,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -54,6 +55,7 @@ public class AppUtils {
     }
 
     @Bean
+    @Scope("cucumber-glue")
     public AndroidDriver getDriver() throws MalformedURLException {
         capabilities = new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, browserName);
