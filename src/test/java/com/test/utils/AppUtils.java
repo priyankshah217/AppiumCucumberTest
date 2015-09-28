@@ -63,7 +63,8 @@ public class AppUtils {
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, platformName);
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, instrumentation);
-        capabilities.setCapability(MobileCapabilityType.APP, new File(ClassLoader.getSystemResource(appPath).getFile()).getAbsolutePath());
+        capabilities.setCapability(MobileCapabilityType.APP, new File(ClassLoader.getSystemResource(appPath)
+                .getFile()).getAbsolutePath());
         capabilities.setCapability(MobileCapabilityType.APP_PACKAGE, basePkg);
         capabilities.setCapability(MobileCapabilityType.APP_ACTIVITY, appActivity);
         serverUrl = new URL("http://localhost:" + appiumPort + "/wd/hub");
