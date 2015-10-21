@@ -1,6 +1,7 @@
 package com.test.apidemo.app.screens;
 
-import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class SecureSurfaceScreen extends AbstractScreen {
     private WebElement secureDialogElement;
 
     @Autowired
-    public SecureSurfaceScreen(AndroidDriver driver) {
+    public SecureSurfaceScreen(AppiumDriver<? extends MobileElement> driver) {
         super(driver);
     }
 

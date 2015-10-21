@@ -1,5 +1,7 @@
 package com.test.apidemo.app.screens;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
@@ -18,12 +20,12 @@ public class IncomingMessageNotificationScreen extends  AbstractScreen{
     private WebElement showAppNotificationElement;
 
     @Autowired
-    public IncomingMessageNotificationScreen(AndroidDriver driver) {
+    public IncomingMessageNotificationScreen(AppiumDriver<? extends MobileElement> driver) {
         super(driver);
     }
 
     public void openMessageNotification(){
         showAppNotificationElement.click();
-        driver.openNotifications();
+        ((AndroidDriver) driver).openNotifications();
     }
 }
