@@ -2,7 +2,6 @@ package com.test.apidemo.app.screens;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -15,7 +14,6 @@ public class HomeScreen extends AbstractScreen {
     @Autowired
     private AppScreen appScreen;
 
-    @AndroidFindBy(accessibility = "App")
     private WebElement appMenuElement;
 
     @Autowired
@@ -24,6 +22,7 @@ public class HomeScreen extends AbstractScreen {
     }
 
     public AppScreen getAppScreen() {
+        appMenuElement = this.getElement("apidemo.homescreen.app.lable");
         appMenuElement.click();
         return appScreen;
     }

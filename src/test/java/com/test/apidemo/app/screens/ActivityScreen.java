@@ -2,7 +2,6 @@ package com.test.apidemo.app.screens;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -18,7 +17,6 @@ public class ActivityScreen extends AbstractScreen {
     @Autowired
     private SecureSurfaceScreen secureSurfaceScreen;
 
-    @AndroidFindBy(accessibility = "Secure Surfaces")
     private WebElement secureSurfaceElement;
 
     @Autowired
@@ -27,6 +25,7 @@ public class ActivityScreen extends AbstractScreen {
     }
 
     public SecureSurfaceScreen getSecureSurfaceScreen() {
+        secureSurfaceElement = this.getElement("apidemo.activityscreen.securesurface.lable");
         secureSurfaceElement.click();
         return secureSurfaceScreen;
     }
