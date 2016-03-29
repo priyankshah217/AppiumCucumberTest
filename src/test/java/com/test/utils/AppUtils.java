@@ -25,10 +25,7 @@ public class AppUtils {
     public int defaultWaitTime;
     @Value("${application.path}")
     public String applicationName;
-    @Value("${base.pkg}")
-    public String basePkg;
-    @Value("${application.activity}")
-    public String appActivity;
+    public DesiredCapabilities capabilities;
     @Value("${appium.server.port}")
     private String appiumPort;
     @Value("${application.path}")
@@ -47,8 +44,6 @@ public class AppUtils {
     private String newCommandTimeout;
     @Value("${device.ready.timeout}")
     private String deviceReadyTimeout;
-
-    private DesiredCapabilities capabilities;
     private URL serverUrl;
     private AppiumDriver<? extends MobileElement> driver;
 
@@ -63,8 +58,6 @@ public class AppUtils {
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, instrumentation);
         capabilities.setCapability(MobileCapabilityType.APP, new File(ClassLoader.getSystemResource(appPath)
                 .getFile()).getAbsolutePath());
-        capabilities.setCapability(MobileCapabilityType.APP_PACKAGE, basePkg);
-        capabilities.setCapability(MobileCapabilityType.APP_ACTIVITY, appActivity);
         serverUrl = new URL("http://localhost:" + appiumPort + "/wd/hub");
         driver = new AndroidDriver(serverUrl, capabilities);
         driver.manage().timeouts().implicitlyWait(implicitWaitTime, TimeUnit.SECONDS);
