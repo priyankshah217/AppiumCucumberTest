@@ -84,7 +84,7 @@
                         <configuration>
                             <projectName>cucumber-jvm-example</projectName>
                             <outputDirectory>${project.build.directory}/cucumber-html-reports</outputDirectory>
-                            <cucumberOutput>${basedir}/cucumber.json</cucumberOutput>
+                            <cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
                             <enableFlashCharts>true</enableFlashCharts>
                         </configuration>
                     </execution>

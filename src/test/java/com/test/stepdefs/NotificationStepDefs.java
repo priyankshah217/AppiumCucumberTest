@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.net.MalformedURLException;
 
-/**
- * Created by priyankp.shah on 9/17/15.
- */
+
 public class NotificationStepDefs {
     @Autowired
     private AppUtils utils;
@@ -20,8 +18,9 @@ public class NotificationStepDefs {
         // Write code here that turns the phrase above into concrete actions
         Assert.assertTrue(true);
     }
+
     @After
-    public void clearSession(){
+    public void clearSession() {
         try {
             utils.getDriver().quit();
         } catch (MalformedURLException e) {

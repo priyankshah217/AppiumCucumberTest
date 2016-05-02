@@ -13,9 +13,6 @@ import java.net.MalformedURLException;
 
 public class SecureDialogNavigationStepDefs {
     @Autowired
-    private AppUtils utils;
-
-    @Autowired
     public AppScreen appScreen;
     @Autowired
     public HomeScreen homeScreen;
@@ -26,6 +23,8 @@ public class SecureDialogNavigationStepDefs {
     @Autowired
     public SecureDialogScreen secureDialogScreen;
     @Autowired
+    private AppUtils utils;
+    @Autowired
     private NotificationScreen notificationScreen;
     @Autowired
     private IncomingMessageNotificationScreen incomingMessageNotificationScreen;
@@ -35,22 +34,22 @@ public class SecureDialogNavigationStepDefs {
         // Write code here that turns the phrase above into concrete actions
         switch (clickOn) {
             case "App":
-                appScreen = homeScreen.getAppScreen();
+                homeScreen.getAppScreen();
                 break;
             case "Activity":
-                activityScreen = appScreen.getActivityScreen();
+                appScreen.getActivityScreen();
                 break;
             case "Secure Surfaces":
-                secureSurfaceScreen = activityScreen.getSecureSurfaceScreen();
+                activityScreen.getSecureSurfaceScreen();
                 break;
             case "Secure Dialog":
-                secureDialogScreen = secureSurfaceScreen.getSecureDialogScreen();
+                secureSurfaceScreen.getSecureDialogScreen();
                 break;
             case "Notification":
-                notificationScreen = appScreen.getNotificationScreen();
+                appScreen.getNotificationScreen();
                 break;
             case "IncomingMessage":
-                incomingMessageNotificationScreen = notificationScreen.getIncomingMessageNotificationScreen();
+                notificationScreen.getIncomingMessageNotificationScreen();
                 break;
         }
     }
@@ -105,7 +104,7 @@ public class SecureDialogNavigationStepDefs {
     }
 
     @After
-    public void clearSession(){
+    public void clearSession() {
         try {
             utils.getDriver().quit();
         } catch (MalformedURLException e) {
