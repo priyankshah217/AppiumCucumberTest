@@ -10,5 +10,4 @@ import org.junit.runner.RunWith;
         "src/test/resources/features/SecureDialog.feature"},
         glue = "com.test.stepdefs")
 public class RunCukesTest {
-
 }
