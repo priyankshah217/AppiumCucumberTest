@@ -22,9 +22,6 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @Component
-@PropertySources({
-        @PropertySource("classpath:config_apidemo_elements.properties")
-})
 public abstract class AbstractScreen {
 
     @Value("${explicit.wait}")

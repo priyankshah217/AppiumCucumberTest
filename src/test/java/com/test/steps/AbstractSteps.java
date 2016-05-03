@@ -1,13 +1,13 @@
-package com.test.stepdefs;
+package com.test.steps;
 
 import com.test.apidemo.app.screens.*;
 import com.test.utils.AppUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Created by priyankp.shah on 5/2/16.
+ * Created by priyankp.shah on 5/3/16.
  */
-public class CommonStepDefs {
+public abstract class AbstractSteps {
     @Autowired
     public AppUtils utils;
 
@@ -25,4 +25,5 @@ public class CommonStepDefs {
     public NotificationScreen notificationScreen;
     @Autowired
     public IncomingMessageNotificationScreen incomingMessageNotificationScreen;
+
 }

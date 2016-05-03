@@ -2,6 +2,7 @@ package com.test.apidemo.app.screens;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -13,8 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Scope("cucumber-glue")
 public class SecureSurfaceScreen extends AbstractScreen {
-    @Autowired
-    private SecureDialogScreen secureDialogScreen;
+    @AndroidFindBy(accessibility = "Secure Dialog")
     private WebElement secureDialogElement;
 
     @Autowired
@@ -22,9 +22,7 @@ public class SecureSurfaceScreen extends AbstractScreen {
         super(driver);
     }
 
-    public SecureDialogScreen getSecureDialogScreen() {
-        secureDialogElement = this.getElement("apidemo.securesurfacescreen.securedialog.lable");
+    public void clickOnSecureDialogLable() {
         secureDialogElement.click();
-        return secureDialogScreen;
     }
 }
