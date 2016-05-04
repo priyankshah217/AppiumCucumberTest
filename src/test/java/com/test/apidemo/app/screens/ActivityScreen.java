@@ -2,6 +2,8 @@ package com.test.apidemo.app.screens;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -14,19 +16,15 @@ import org.springframework.stereotype.Component;
 @Scope("cucumber-glue")
 public class ActivityScreen extends AbstractScreen {
 
-    @Autowired
-    private SecureSurfaceScreen secureSurfaceScreen;
-
-    private WebElement secureSurfaceElement;
+    @AndroidFindBy(accessibility = "Secure Surfaces")
+    private AndroidElement secureSurfaceElement;
 
     @Autowired
     public ActivityScreen(AppiumDriver<? extends MobileElement> driver) {
         super(driver);
     }
 
-    public SecureSurfaceScreen getSecureSurfaceScreen() {
-        secureSurfaceElement = this.getElement("apidemo.activityscreen.securesurface.lable");
+    public void clickOnSecureSurfaceLable() {
         secureSurfaceElement.click();
-        return secureSurfaceScreen;
     }
 }

@@ -1,11 +1,10 @@
 package com.test.stepdefs;
 
-import com.test.apidemo.app.screens.*;
+import com.test.steps.*;
 import com.test.utils.AppUtils;
 import cucumber.api.java.After;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import io.appium.java_client.MobileBy;
 import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,43 +12,43 @@ import java.net.MalformedURLException;
 
 public class SecureDialogNavigationStepDefs {
     @Autowired
-    public AppScreen appScreen;
+    public AppUtils utils;
     @Autowired
-    public HomeScreen homeScreen;
+    private HomeScreenSteps homeScreenSteps;
     @Autowired
-    public ActivityScreen activityScreen;
+    private AppScreenSteps appScreenSteps;
     @Autowired
-    public SecureSurfaceScreen secureSurfaceScreen;
+    private ActivityScreenSteps activityScreenSteps;
     @Autowired
-    public SecureDialogScreen secureDialogScreen;
+    private NotificationSteps notificationSteps;
     @Autowired
-    private AppUtils utils;
+    private SecureSurfaceSteps secureSurfaceSteps;
     @Autowired
-    private NotificationScreen notificationScreen;
+    private SecureDialogSteps secureDialogSteps;
     @Autowired
-    private IncomingMessageNotificationScreen incomingMessageNotificationScreen;
+    private IncomingMessageNotificationSteps incomingMessageNotificationSteps;
 
     @When("^I click on \"([^\"]*)\" on \"([^\"]*)\"$")
     public void i_click_on_on(String clickOn, String screenName) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         switch (clickOn) {
             case "App":
-                homeScreen.getAppScreen();
+                homeScreenSteps.getAppScreen();
                 break;
             case "Activity":
-                appScreen.getActivityScreen();
+                appScreenSteps.getActivityScreen();
                 break;
             case "Secure Surfaces":
-                activityScreen.getSecureSurfaceScreen();
+                activityScreenSteps.getSecureSurfaceScreen();
                 break;
             case "Secure Dialog":
-                secureSurfaceScreen.getSecureDialogScreen();
+                secureSurfaceSteps.getSecureDialogScreen();
                 break;
             case "Notification":
-                appScreen.getNotificationScreen();
+                appScreenSteps.getNotificationScreen();
                 break;
             case "IncomingMessage":
-                notificationScreen.getIncomingMessageNotificationScreen();
+                notificationSteps.getIncomingMessageNotificationScreen();
                 break;
         }
     }
@@ -59,13 +58,13 @@ public class SecureDialogNavigationStepDefs {
         // Write code here that turns the phrase above into concrete actions
         switch (textToCheck) {
             case "Activity":
-                Assert.assertTrue(appScreen.isElementPresent(MobileBy.AccessibilityId("Activity")));
+                Assert.assertTrue(appScreenSteps.checkForActivityScreen());
                 break;
             case "Secure Surfaces":
-                Assert.assertTrue(activityScreen.isElementPresent(MobileBy.AccessibilityId("Secure Surfaces")));
+                Assert.assertTrue(activityScreenSteps.checkForSecureSurfaceScreen());
                 break;
             case "Secure Dialog\"":
-                Assert.assertTrue(secureSurfaceScreen.isElementPresent(MobileBy.AccessibilityId("Secure Dialog")));
+                Assert.assertTrue(secureSurfaceSteps.checkForSecureDialog());
                 break;
         }
     }
@@ -75,10 +74,10 @@ public class SecureDialogNavigationStepDefs {
         // Write code here that turns the phrase above into concrete actions
         switch (buttonText) {
             case "Show secure dialog":
-                Assert.assertTrue(secureDialogScreen.isElementPresent(MobileBy.AccessibilityId("Show secure dialog")));
+                Assert.assertTrue(secureDialogSteps.checkForSecureDialog());
                 break;
             case "Show App Notification":
-                Assert.assertTrue(incomingMessageNotificationScreen.isElementPresent(MobileBy.AccessibilityId("Show App Notification")));
+                Assert.assertTrue(incomingMessageNotificationSteps.checkIncomingNotification());
         }
 
     }
@@ -88,10 +87,10 @@ public class SecureDialogNavigationStepDefs {
         // Write code here that turns the phrase above into concrete actions
         switch (buttonText) {
             case "Show secure dialog":
-                secureDialogScreen.getSecureDialog();
+                secureDialogSteps.getSecureDialog();
                 break;
             case "Show App Notification":
-                incomingMessageNotificationScreen.openMessageNotification();
+                incomingMessageNotificationSteps.openMessageNotification();
                 break;
         }
 

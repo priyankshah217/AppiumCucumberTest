@@ -8,12 +8,12 @@ Prerequisite
 1. Android SDK
 2. Appium
 3. Maven (For managing dependencies)
-4. Eclipse (With TestNG plugin)
+4. IntelliJ or Eclipse
 
 Installation
 =====================
 1. Install from git (using git clone)
-2. Run "mvn clean install" from project directory
+2. Run "mvn clean test" from project directory
 
 Script Description
 =====================

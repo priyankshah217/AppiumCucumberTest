@@ -8,10 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.net.MalformedURLException;
 
-
+/**
+ * Created by priyankp.shah on 9/17/15.
+ */
 public class NotificationStepDefs {
     @Autowired
-    private AppUtils utils;
+    public AppUtils utils;
 
     @Then("^Message notification should be visible$")
     public void message_notification_should_be_visible() throws Throwable {
