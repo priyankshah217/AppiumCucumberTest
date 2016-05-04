@@ -11,52 +11,52 @@
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-spring</artifactId>
-            <version>LATEST</version>
+            <version>1.2.4</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>LATEST</version>
+            <version>4.2.5.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>LATEST</version>
+            <version>4.2.5.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-jvm-deps</artifactId>
-            <version>LATEST</version>
+            <version>1.0.5</version>
         </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>LATEST</version>
+            <version>1.2.4</version>
         </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-junit</artifactId>
-            <version>LATEST</version>
+            <version>1.2.4</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>LATEST</version>
+            <version>4.12</version>
         </dependency>
         <dependency>
             <groupId>net.masterthought</groupId>
             <artifactId>cucumber-reporting</artifactId>
-            <version>LATEST</version>
+            <version>2.2.0</version>
         </dependency>
         <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
-            <version>LATEST</version>
+            <version>3.4.1</version>
         </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-core</artifactId>
-            <version>LATEST</version>
+            <version>1.2.4</version>
         </dependency>
     </dependencies>
     <build>
@@ -84,7 +84,7 @@
                         <configuration>
                             <projectName>cucumber-jvm-example</projectName>
                             <outputDirectory>${project.build.directory}/cucumber-html-reports</outputDirectory>
-                            <cucumberOutput>${basedir}/cucumber.json</cucumberOutput>
+                            <cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
                             <enableFlashCharts>true</enableFlashCharts>
                         </configuration>
                     </execution>
