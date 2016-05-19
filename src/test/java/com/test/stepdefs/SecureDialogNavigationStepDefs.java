@@ -1,18 +1,12 @@
 package com.test.stepdefs;
 
 import com.test.steps.*;
-import com.test.utils.AppUtils;
-import cucumber.api.java.After;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.net.MalformedURLException;
-
 public class SecureDialogNavigationStepDefs {
-    @Autowired
-    public AppUtils utils;
     @Autowired
     private HomeScreenSteps homeScreenSteps;
     @Autowired
@@ -101,14 +95,4 @@ public class SecureDialogNavigationStepDefs {
         // Write code here that turns the phrase above into concrete actions
         Assert.assertTrue(true);
     }
-
-    @After
-    public void clearSession() {
-        try {
-            utils.getDriver().quit();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-    }
-
 }
